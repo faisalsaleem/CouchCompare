@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NestJS HTML Example</title>
+    <link rel="stylesheet" href="index.css">
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+  $(document).ready(function() {
+    // Add event listener to dynamically created list items
+    $('#myList1').on('click', 'li', function() {
+      let panel1 = $(this).siblings('.panal1');
+      $(panel1).slideToggle();
+
+
+      let dat = $(this).text().trim().split('/');
+      
+      console.log(dat[0]);
+             var formData = dat[0];
+           
+
+
+       $.ajax({
+        type: 'POST',
+        url: '/data/submitDB', // Replace with your backend endpoint
+        data: formData,
+        success: function(response) {
+          // Handle success response
+          console.log('Post successful:', response);
+        },
+        error: function(xhr, status, error) {
+          // Handle error
+          console.error('Error:', error);
+        }
+      });
+      
+    });
+
+
+
+    $('#myList2').on('click', 'li', function() {
+      let panel2 = $(this).children('.panal2');
+      $(panel2).slideToggle();
+    });
+  });
+</script>
+
+    
+</head>
+<body style="margin: 0px; padding:0px;  width:auto; height:100vh ">
+   <div style="width:100%; height:100%; display:flex; justify-content:space-evenly; align-items:center;">
+
+   
+<div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center;"
+{{!-- action="/data/submitDB" method="POST" --}}
+>
+<div style="display: flex;width:99%; height:99%;justify-content:center; align-items:center; ">
+
+
+
+<div style="width:50%; height:90%; border:1px solid black;">
+  <p style="font-size:20px;">URL_1 DataBase<span>--[{{db1.length}}]</span></p> 
+
+ 
+  <ul 
+    name="db1"
+  id="myList1"
+  >
+   {{#each  db1}}
+   <div>
+    <li class="text" style="border:1px solid black; margin-bottom:5px; padding:10px; display:flex; justify-content:space-between; margin-right:10px;">{{ this }}
+    </li>
+    <div class="panal1" data-index="{{this}}" style="display:none; background:red;">
+      <h1>h</h1>
+    </div>
+    </div>
+  {{/each}}
+  </ul>
+
+  </div>
+
+
+
+
+ <div style="width:50%; height:90%; border:1px solid black;">
+  <p style="font-size:20px;">URL_2 DataBase<span>--[{{db2.length}}]</span></p> 
+  <ul 
+    name="db2"
+    id="myList2"
+  >
+   {{#each db2}}
+    <li class="test2" style="border:1px solid black; margin-bottom:5px; padding:10px; display:flex; justify-content:space-between; margin-right:10px;">{{ this }}
+
+      <div class="panal2" style="display:none; background:red;">
+      <h1>h</h1>
+    </div>
+    </li> 
+  {{/each}}
+  </ul>
+  </div>
+
+
+
+  </div>
+
+ </div>
+ </div>
+ 
+</body>
+</html>

@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NestJS HTML Example</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body style="margin: 0px; padding:0px; width:auto; height:100vh">
+  <div style="width:100%; height:100%; display:flex; justify-content:space-evenly; align-items:center;">
+
+<form style=" width:100%; height:100%; display:flex; flex-direction:column; align-items:center;"
+action="/data/submit" method="POST"
+>
+
+<div style="display: flex;width:99%; height:99%; ">
+<div style="width:50%; height:90%; flex-direction:column; display:flex; justify-content:center; align-items:center; border:1px solid black;">
+   <h1>DataBase No. 1</h1>
+<div style="margin:20px; flex-direction:column; display:flex;">
+  <label>
+  DataBase URL
+</label>
+<input style="width: 300px; height:30px;" type="text" name="url1" value="" required/>
+</div>
+
+<div style="margin:20px;flex-direction:column; display:flex;">
+  <label>
+  UserName
+</label>
+<input style="width: 300px; height:30px;"  type="text" name="userName1" value="" />
+</div>
+
+<div style="margin:20px;flex-direction:column; display:flex;">
+  <label>
+  Password
+</label>
+<input style="width: 300px; height:30px;"  type="password" name="password1" value="" />
+</div>
+</div>
+
+<div style="width:50%;  height:90%; display:flex; flex-direction:column; justify-content:center; align-items:center; border:1px solid black;">
+  <h1>DataBase No. 2</h1>
+<div style="margin:20px;flex-direction:column; display:flex;">
+  <label>
+  DataBase URL
+</label>
+<input style="width: 300px; height:30px;" type="text" name="url2" value=""  />
+</div>
+
+<div style="margin:20px;flex-direction:column; display:flex;">
+  <label>
+  UserName
+</label>
+<input style="width: 300px; height:30px;" type="text" name="userName2" value="" />
+</div>
+
+<div style="margin:20px;flex-direction:column; display:flex;">
+  <label>
+  Password
+</label>
+<input style="width: 300px; height:30px;" type="password" name="password2" value="" />
+</div>
+</div>
+
+</div>
+
+
+<button type="submit" style="width: 150px; height:50px; margin-bottom:20px;"> submit</button>
+</form>
+
+
+
+
+
+  
+
+  
+  </div>
+ 
+ 
+</body>
+</html>
